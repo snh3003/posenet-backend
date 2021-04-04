@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require('mongoose');
-mongoose.connect("mongodb+srv://FarziKumar:farzi123456789@cluster0.svwae.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://FarziKumar:farzi123456789@cluster0.svwae.mongodb.net/sampledata?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
 
@@ -24,6 +24,7 @@ app.post('/api/pose', (req, res, next) => {
     //console.log("Hello "+ JSON.stringify(req.body));
     // console.log(req.body[0]);
     let data = req.body[0];
+    console.log(req.body)
     const db = mongoose.connection;
     db.collection('posenet').insertOne(data, (err, res) => {
         if(err) console.log(err);
