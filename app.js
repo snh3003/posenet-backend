@@ -23,8 +23,8 @@ app.use(bodyParser.json());
 app.post('/api/pose', (req, res, next) => {
     //console.log("Hello "+ JSON.stringify(req.body));
     // console.log(req.body[0]);
-    let data = req.body[0];
-    console.log(req.body)
+    let data = req.body;
+    // console.log(req.body)
     const db = mongoose.connection;
     db.collection('posenet').insertOne(data, (err, res) => {
         if(err) console.log(err);
